@@ -9,7 +9,6 @@ function addLength(str) {
 
   return results
 }
-// console.log(addLength('apple ban'))
 
 // 2. Find Maximum and Minimum Values of a List
 var min = function (list) {
@@ -22,9 +21,6 @@ var max = function (list) {
   return list[0]
 }
 
-// console.log(min([4, 6, 2, 1, 9, 63, -134, 566]))
-// console.log(max([4, 6, 2, 1, 9, 63, -134, 566]))
-
 // 3. All Star Code Challenge
 function strCount(str, letter) {
   let count = 0
@@ -36,10 +32,7 @@ function strCount(str, letter) {
   return count
 }
 
-// console.log(strCount('Hello0dodsao', 'o'))
-
 // 4. What is Between?
-
 function between(a, b) {
   let result = [a]
   while (a < b) {
@@ -49,4 +42,28 @@ function between(a, b) {
   return result
 }
 
-// console.log(between(1, 4))
+// 5. Find Multiples of a Number
+function findMultiples(integer, limit) {
+  let result = []
+  let count = Math.floor(limit / integer)
+  for (let i = 0; i < count; count--) {
+    result.push(Math.floor(integer * count))
+  }
+  return result.reverse()
+}
+
+// 6. String ends with?
+function solution(str, ending) {
+  let s = str.slice(str.length - ending.length)
+  return s === ending
+}
+
+// 7. Function 2 - squaring an argument
+const square = (num) => {
+  return num * num
+}
+
+// 8. List Filtering
+function filter_list(l) {
+  return l.filter((item) => typeof item === 'number')
+}
