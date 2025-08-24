@@ -67,3 +67,8 @@ const square = (num) => {
 function filter_list(l) {
   return l.filter((item) => typeof item === 'number')
 }
+
+// 9. Reversing Words in a String
+function reverse(string) {
+  return string.split(' ').reverse().join(' ')
+}
