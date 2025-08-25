@@ -72,3 +72,44 @@ function filter_list(l) {
 function reverse(string) {
   return string.split(' ').reverse().join(' ')
 }
+
+// 10. Keep Hydrated!
+function litres(time) {
+  return Math.floor(time * 0.5)
+}
+
+// 11. Extract the domain name from a URL
+function domainName(url) {
+  const normalized = url.includes('://') ? url : `http://${url}`
+  const hostname = new URL(normalized).hostname
+  const noWww = hostname.startsWith('www.') ? hostname.slice(4) : hostname
+  return noWww.split('.')[0]
+}
+
+// 12. WeIrD StRiNg CaSe
+function toWeirdCase(string) {
+  let str = ''
+  let count = 1
+  for (let i = 0; i < string.length; i++) {
+    count++
+    if (count % 2 === 0) {
+      str += string[i].toUpperCase()
+    } else {
+      str += string[i].toLowerCase()
+    }
+    if (string[i] === ' ') {
+      count = 1
+    }
+  }
+  return str
+}
+
+// 13. Number of trailing zeros of N!
+function zeros(n) {
+  let count = 0
+  while (n > 0) {
+    n = Math.floor(n / 5)
+    count += n
+  }
+  return count
+}
