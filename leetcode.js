@@ -12,7 +12,7 @@ var reverseWords = function (s) {
 }
 
 // 2. maximum69Number
-var maximum69Number = function (num) {
+let maximum69Number = function (num) {
   let array = String(num).split('')
   for (let i = 0; i < array.length; i++) {
     if (array[i] == '6') {
