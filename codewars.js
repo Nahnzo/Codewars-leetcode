@@ -113,3 +113,21 @@ function zeros(n) {
   }
   return count
 }
+
+// 14. String incrementer
+function incrementString(str) {
+  const match = str.match(/(\d*)$/)
+  const digits = match[0]
+  const head = str.slice(0, str.length - digits.length)
+
+  if (digits === '') {
+    return head + '1'
+  }
+
+  const numLength = digits.length
+  const incremented = (parseInt(digits, 10) + 1).toString()
+
+  const padded = incremented.padStart(numLength, '0')
+
+  return head + padded
+}
