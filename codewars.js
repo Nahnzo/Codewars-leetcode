@@ -131,3 +131,21 @@ function incrementString(str) {
 
   return head + padded
 }
+
+// 15. Regex Password Validation
+const REGEXP = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9]{6,}$/
+
+// 16. int32 to IPv4
+function int32ToIp(int32) {
+  let number = int32.toString(2).padStart(32, '0')
+  let res = []
+  let result = ''
+
+  for (let i = 0; i < 32; i += 8) {
+    let byte = number.slice(i, i + 8)
+    res.push(parseInt(byte, 2))
+  }
+
+  result = res.join('.')
+  return result
+}
