@@ -37,3 +37,24 @@ var judgeCircle = function (moves) {
   }
   return l === r && u === d
 }
+
+// 4. DI String Match
+var diStringMatch = function (s) {
+  let result = []
+  let numbers = []
+  for (let i = 0; i < s.length + 1; i++) {
+    numbers.push(i)
+  }
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === 'I') {
+      let minNumber = Math.min(...numbers)
+      result.push(minNumber)
+      numbers = numbers.filter((item) => item !== minNumber)
+    } else {
+      let maxNumber = Math.max(...numbers)
+      result.push(maxNumber)
+      numbers = numbers.filter((item) => item !== maxNumber)
+    }
+  }
+  return [...result, ...numbers]
+}
