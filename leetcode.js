@@ -58,3 +58,32 @@ var diStringMatch = function (s) {
   }
   return [...result, ...numbers]
 }
+
+// 5.  Array Partition
+var arrayPairSum = function (nums) {
+  let sorted = nums.sort((a, b) => a - b)
+  let max = 0
+  for (let i = 0; i < sorted.length; i += 2) {
+    max += sorted[i]
+  }
+  return max
+}
+
+// 6. Relative Ranks
+var findRelativeRanks = function (score) {
+  let scoreWithIndex = score.map((s, i) => [s, i])
+
+  scoreWithIndex.sort((a, b) => b[0] - a[0])
+
+  let result = new Array(score.length).fill('')
+
+  for (let i = 0; i < scoreWithIndex.length; i++) {
+    let idx = scoreWithIndex[i][1]
+    if (i === 0) result[idx] = 'Gold Medal'
+    else if (i === 1) result[idx] = 'Silver Medal'
+    else if (i === 2) result[idx] = 'Bronze Medal'
+    else result[idx] = (i + 1).toString()
+  }
+
+  return result
+}
