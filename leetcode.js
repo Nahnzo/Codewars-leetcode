@@ -87,3 +87,26 @@ var findRelativeRanks = function (score) {
 
   return result
 }
+
+// 7. Permutations
+var permute = function (nums) {
+  const res = []
+  const dfs = (current, available) => {
+    if (available.length === 0) {
+      res.push([...current])
+      return
+    }
+
+    const temp = [...available]
+    for (let i = 0; i < available.length; i++) {
+      current.push(available[i])
+      temp.shift()
+      dfs(current, temp)
+      current.pop()
+      temp.push(available[i])
+    }
+  }
+
+  dfs([], nums)
+  return res
+}
