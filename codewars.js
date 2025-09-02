@@ -149,3 +149,12 @@ function int32ToIp(int32) {
   result = res.join('.')
   return result
 }
+
+// 17. Moving Zeros To The End
+
+function moveZeros(arr) {
+  let length = arr.length
+  let filtered = arr.filter((item) => item !== 0)
+  filtered.push(...Array(length - filtered.length).fill(0))
+  return filtered
+}
