@@ -110,3 +110,14 @@ var permute = function (nums) {
   dfs([], nums)
   return res
 }
+
+//8. Number of 1 Bits
+var hammingWeight = function (n) {
+  let count = 0
+  n = n | 0
+  while (n !== 0) {
+    n &= n - 1
+    count++
+  }
+  return count
+}
