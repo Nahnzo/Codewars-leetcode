@@ -135,3 +135,20 @@ const rotate = (matrix) => {
   }
   return matrix
 }
+
+// 10. Baseball Game
+var calPoints = function (operations) {
+  let record = []
+  for (let i = 0; i < operations.length; i++) {
+    if (operations[i] === 'D') {
+      record.push(record[record.length - 1] * 2)
+    } else if (operations[i] === 'C') {
+      record.pop()
+    } else if (operations[i] === '+') {
+      record.push(record[record.length - 1] + record[record.length - 2])
+    } else {
+      record.push(Number(operations[i]))
+    }
+  }
+  return record.reduce((acc, item) => acc + item, 0)
+}
