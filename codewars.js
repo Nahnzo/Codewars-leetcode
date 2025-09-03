@@ -151,7 +151,6 @@ function int32ToIp(int32) {
 }
 
 // 17. Moving Zeros To The End
-
 function moveZeros(arr) {
   let length = arr.length
   let filtered = arr.filter((item) => item !== 0)

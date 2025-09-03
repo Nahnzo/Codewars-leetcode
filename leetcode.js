@@ -111,7 +111,7 @@ var permute = function (nums) {
   return res
 }
 
-//8. Number of 1 Bits
+// 8. Number of 1 Bits
 var hammingWeight = function (n) {
   let count = 0
   n = n | 0
@@ -120,4 +120,18 @@ var hammingWeight = function (n) {
     count++
   }
   return count
+}
+
+// 9. Rotate Image
+const rotate = (matrix) => {
+  for (let i = 0; i < matrix[0].length; i++) {
+    for (let j = i + 1; j < matrix.length; j++) {
+      ;[matrix[j][i], matrix[i][j]] = [matrix[i][j], matrix[j][i]]
+    }
+  }
+
+  for (let i = 0; i < matrix.length; i++) {
+    matrix[i].reverse()
+  }
+  return matrix
 }
