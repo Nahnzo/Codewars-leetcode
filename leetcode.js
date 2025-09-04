@@ -152,3 +152,21 @@ var calPoints = function (operations) {
   }
   return record.reduce((acc, item) => acc + item, 0)
 }
+
+// 11. Construct Smallest Number From DI String
+var smallestNumber = function (pattern) {
+  let stack = []
+  let ans = ''
+
+  for (let i = 0; i <= pattern.length; i++) {
+    stack.push(i + 1)
+
+    if (i === pattern.length || pattern[i] === 'I') {
+      while (stack.length > 0) {
+        ans += stack.pop()
+      }
+    }
+  }
+
+  return ans
+}
