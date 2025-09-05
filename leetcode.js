@@ -170,3 +170,32 @@ var smallestNumber = function (pattern) {
 
   return ans
 }
+
+// 12. Maximum Nesting Depth of the Parentheses
+var maxDepth = function (s) {
+  let stack = []
+  let res = 0
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === '(') {
+      stack.push(s[i])
+    } else if (s[i] === ')') {
+      res = Math.max(res, stack.length)
+      stack.pop()
+    }
+  }
+
+  return res
+}
+
+// 13. Clear Digits
+var clearDigits = function (s) {
+  let stack = []
+  for (let i = 0; i < s.length; i++) {
+    if (isNaN(s[i])) {
+      stack.push(s[i])
+    } else if (stack.length !== 0) {
+      stack.pop()
+    }
+  }
+  return stack.join('')
+}
