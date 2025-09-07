@@ -199,3 +199,26 @@ var clearDigits = function (s) {
   }
   return stack.join('')
 }
+
+// 14. Next Greater Element I
+var nextGreaterElement = function (nums1, nums2) {
+  let result = []
+  let stack = []
+  let pointer = 0
+  for (let i = 0; i < nums1.length; i++) {
+    stack.push(nums1[i])
+  }
+  for (let i = 0; i < nums1.length; i++) {
+    let position = nums2.indexOf(stack[i])
+    pointer = position
+    do {
+      pointer++
+    } while (nums2[pointer] < stack[i])
+    if (nums2[pointer] > stack[i]) {
+      result.push(nums2[pointer])
+    } else {
+      result.push(-1)
+    }
+  }
+  return result
+}
