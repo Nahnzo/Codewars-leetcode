@@ -222,3 +222,37 @@ var nextGreaterElement = function (nums1, nums2) {
   }
   return result
 }
+
+// 15. Backspace String Compare
+var backspaceCompare = function (s, t) {
+  let stack = []
+  let stack2 = []
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] !== '#') {
+      stack.push(s[i])
+    } else {
+      stack.pop()
+    }
+  }
+  for (let i = 0; i < t.length; i++) {
+    if (t[i] !== '#') {
+      stack2.push(t[i])
+    } else {
+      stack2.pop()
+    }
+  }
+
+  return stack.join() === stack2.join()
+}
+
+// 16. Remove All Adjacent Duplicates In String
+let removeDuplicates = function (s) {
+  const stack = []
+
+  for (const char of s) {
+    if (stack.length > 0 && stack[stack.length - 1] === char) stack.pop()
+    else stack.push(char)
+  }
+
+  return stack.join('')
+}
