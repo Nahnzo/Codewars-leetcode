@@ -256,3 +256,17 @@ let removeDuplicates = function (s) {
 
   return stack.join('')
 }
+
+// 17. Final Prices With a Special Discount in a Shop
+var finalPrices = function (prices) {
+  let result = [...prices]
+  let stack = []
+  for (let i = 0; i < prices.length; i++) {
+    while (stack.length > 0 && prices[i] <= prices[stack[stack.length - 1]]) {
+      let idx = stack.pop()
+      result[idx] = prices[idx] - prices[i]
+    }
+    stack.push(i)
+  }
+  return result
+}
