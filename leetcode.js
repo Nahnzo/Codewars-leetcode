@@ -270,3 +270,36 @@ var finalPrices = function (prices) {
   }
   return result
 }
+
+// 18. Minimum Number of Increments on Subarrays to Form a Target Array
+var minNumberOperations = function (target) {
+  let ops = target[0]
+  for (let i = 1; i < target.length; i++) {
+    if (target[i] > target[i - 1]) {
+      ops += target[i] - target[i - 1]
+    }
+  }
+  return ops
+}
+
+// 19. Remove All Adjacent Duplicates in String II
+var removeDuplicateS = function (s, k) {
+  let stack = []
+  for (let char of s) {
+    if (stack.length > 0 && stack[stack.length - 1][0] === char) {
+      stack[stack.length - 1][1]++
+      if (stack[stack.length - 1][1] === k) {
+        stack.pop()
+      }
+    } else {
+      stack.push([char, 1])
+    }
+  }
+
+  let result = ''
+  for (let [ch, count] of stack) {
+    result += ch.repeat(count)
+  }
+
+  return result
+}
