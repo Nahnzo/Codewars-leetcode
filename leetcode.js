@@ -303,3 +303,16 @@ var removeDuplicateS = function (s, k) {
 
   return result
 }
+
+// 19. Removing Stars From a String
+var removeStars = function (s) {
+  let stack = []
+  for (let i = 0; i < s.length; i++) {
+    stack.push(s[i])
+    if (s[i] === '*') {
+      stack.pop()
+      stack.pop()
+    }
+  }
+  return stack.join('')
+}
