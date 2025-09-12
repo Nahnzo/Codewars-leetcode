@@ -316,3 +316,21 @@ var removeStars = function (s) {
   }
   return stack.join('')
 }
+
+// 20. Reverse Substrings Between Each Pair of Parentheses
+var reverseParentheses = function (s) {
+  let stack = [[]]
+
+  for (let char of s) {
+    if (char === '(') {
+      stack.push([])
+    } else if (char === ')') {
+      let group = stack.pop().reverse()
+      stack[stack.length - 1].push(...group)
+    } else {
+      stack[stack.length - 1].push(char)
+    }
+  }
+
+  return stack[0].join('')
+}
