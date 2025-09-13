@@ -334,3 +334,18 @@ var reverseParentheses = function (s) {
 
   return stack[0].join('')
 }
+
+// 20. Crawler Log Folder
+var minOperations = function (logs) {
+  let deep = []
+  for (let i = 0; i < logs.length; i++) {
+    if (logs[i] === './') {
+      continue
+    } else if (logs[i] === '../') {
+      if (deep.length !== 0) deep.pop()
+    } else {
+      deep.push(logs[i])
+    }
+  }
+  return deep.length
+}
