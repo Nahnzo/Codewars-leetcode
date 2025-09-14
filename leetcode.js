@@ -349,3 +349,20 @@ var minOperations = function (logs) {
   }
   return deep.length
 }
+
+var simplifyPath = function (path) {
+  let parts = path.split('/')
+  let stack = []
+
+  for (let part of parts) {
+    if (part === '' || part === '.') {
+      continue
+    } else if (part === '..') {
+      if (stack.length > 0) stack.pop()
+    } else {
+      stack.push(part)
+    }
+  }
+
+  return '/' + stack.join('/')
+}
