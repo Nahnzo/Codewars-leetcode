@@ -350,6 +350,7 @@ var minOperations = function (logs) {
   return deep.length
 }
 
+// 21. Simplify Path
 var simplifyPath = function (path) {
   let parts = path.split('/')
   let stack = []
@@ -365,4 +366,27 @@ var simplifyPath = function (path) {
   }
 
   return '/' + stack.join('/')
+}
+
+// 22. Sort List
+var sortList = function (head) {
+  if (!head || !head.next) return head
+
+  let swapped
+  do {
+    swapped = false
+    let current = head
+
+    while (current.next) {
+      if (current.val > current.next.val) {
+        const temp = current.val
+        current.val = current.next.val
+        current.next.val = temp
+        swapped = true
+      }
+      current = current.next
+    }
+  } while (swapped)
+
+  return head
 }
