@@ -415,3 +415,16 @@ var maxDepth = function (root) {
 
   return 1 + Math.max(left, right)
 }
+
+// 25. Transform Array by Parity
+var transformArray = function (nums) {
+  let res = []
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] % 2 === 0) {
+      res.push(0)
+    } else {
+      res.push(1)
+    }
+  }
+  return res.sort((a, b) => a - b)
+}
