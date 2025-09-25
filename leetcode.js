@@ -452,3 +452,37 @@ var intersect = function (nums1, nums2) {
 
   return result
 }
+
+// 27. Sorting the Sentence
+var sortSentence = function (s) {
+  let splitted = s.split(' ')
+  let answer = []
+
+  for (let i = 0; i < splitted.length; i++) {
+    let pos = Number(splitted[i][splitted[i].length - 1])
+    answer[pos - 1] = splitted[i].slice(0, -1)
+  }
+
+  return answer.join(' ')
+}
+
+// 28. Delete Greatest Value in Each Row
+
+var deleteGreatestValue = function (grid) {
+  let answer = 0
+  let n = grid[0].length
+
+  for (let i = 0; i < grid.length; i++) {
+    grid[i].sort((a, b) => a - b)
+  }
+
+  for (let j = 0; j < n; j++) {
+    let colMax = 0
+    for (let i = 0; i < grid.length; i++) {
+      colMax = Math.max(colMax, grid[i][j])
+    }
+    answer += colMax
+  }
+
+  return answer
+}
