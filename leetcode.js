@@ -486,3 +486,9 @@ var deleteGreatestValue = function (grid) {
 
   return answer
 }
+
+// 29.  Find the Difference
+var findTheDifference = function (s, t) {
+  for (let letter of s) t = t.replace(letter, '')
+  return t
+}
