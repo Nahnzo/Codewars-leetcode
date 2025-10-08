@@ -467,7 +467,6 @@ var sortSentence = function (s) {
 }
 
 // 28. Delete Greatest Value in Each Row
-
 var deleteGreatestValue = function (grid) {
   let answer = 0
   let n = grid[0].length
@@ -487,8 +486,35 @@ var deleteGreatestValue = function (grid) {
   return answer
 }
 
-// 29.  Find the Difference
+// 29. Find the Difference
 var findTheDifference = function (s, t) {
   for (let letter of s) t = t.replace(letter, '')
   return t
+}
+// 30. Recover Binary Search Tree
+var recoverTree = function (root) {
+  let first = null
+  let second = null
+  let prev = null
+
+  function traverse(node) {
+    if (!node) return
+    traverse(node.left)
+    if (prev && prev.val > node.val) {
+      if (!first) first = prev
+      second = node
+    }
+
+    prev = node
+
+    traverse(node.right)
+  }
+
+  traverse(root)
+
+  if (first && second) {
+    ;[first.val, second.val] = [second.val, first.val]
+  }
+
+  return root
 }
