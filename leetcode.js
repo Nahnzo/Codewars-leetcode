@@ -518,3 +518,24 @@ var recoverTree = function (root) {
 
   return root
 }
+
+// 31. Find Bottom Left Tree Value
+var findBottomLeftValue = function (root) {
+  let maxDepth = -1
+  let leftmostValue = null
+
+  function dfs(node, depth) {
+    if (!node) return
+
+    if (depth > maxDepth) {
+      maxDepth = depth
+      leftmostValue = node.val
+    }
+
+    dfs(node.left, depth + 1)
+    dfs(node.right, depth + 1)
+  }
+
+  dfs(root, 0)
+  return leftmostValue
+}
